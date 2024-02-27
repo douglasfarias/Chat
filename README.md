@@ -12,9 +12,13 @@ O **Chat Service** é uma aplicação que permite que os usuários conversem em 
 
 ## Como Utilizar
 1. Clone este repositório para sua máquina local.
-2. Execute o servidor de chat.
-3. Abra o cliente de chat em seu navegador ou aplicativo de chat preferido.
-4. Comece a conversar!
+2. Crie um banco de dados Sql Server
+3. Adicione a Connection String ao arquivo ```Chat.Api/appsettings.json``` no atributo **DefaultConnection** da seção **ConnectionStrings**
+4. Execute as migrações do Entity Framework ```dotnet ef database update```
+5. Execute os arquivos de script contidos em ```Chat.Infrastructure/Scripts```
+6. Execute o servidor de chat.
+7. Abra o cliente de chat em seu navegador ou aplicativo de chat preferido.
+8. Comece a conversar!
 
 ## Tecnologias Utilizadas
 - **ASP .NET Core**: Para o backend do servidor.
