@@ -1,4 +1,4 @@
-# Chat Service
+# Chat
 
 Este é um projeto de **serviço de chat** desenvolvido para facilitar a comunicação entre usuários. Aqui estão algumas informações importantes sobre o projeto:
 
