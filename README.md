@@ -26,6 +26,3 @@ O **Chat Service** é uma aplicação que permite que os usuários conversem em 
 
 ## Contribuidores
 - [Douglas Farias](https://github.com/douglasfarias) - Desenvolvedor principal
-
-## Licença
-Este projeto está sob a licença MIT. Consulte o arquivo [LICENSE](LICENSE) para obter mais detalhes.
