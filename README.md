@@ -17,7 +17,7 @@ O **Chat Service** é uma aplicação que permite que os usuários conversem em 
 4. Comece a conversar!
 
 ## Tecnologias Utilizadas
-- **.NET.js**: Para o backend do servidor.
+- **ASP .NET Core**: Para o backend do servidor.
 - **Net.js**: Para o frontend do cliente.
 
 ## Contribuidores
