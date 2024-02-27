@@ -1,11 +1,9 @@
 ﻿using System.Data;
-
 using Chat.Domain.Entities;
 using Chat.Domain.Repositories;
-
 using Dapper;
 
-namespace Chat.Infrastructure.Repositories;
+namespace Chat.Infrastructure.Data.Repositories;
 public class ContatosRepository : IContatosRepository, IDisposable
 {
     private readonly IDbConnection _connection;

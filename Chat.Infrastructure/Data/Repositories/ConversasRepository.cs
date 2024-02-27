@@ -1,11 +1,9 @@
 ﻿using System.Data;
-
 using Chat.Domain.Entities;
 using Chat.Domain.Repositories;
-
 using Dapper;
 
-namespace Chat.Infrastructure.Repositories;
+namespace Chat.Infrastructure.Data.Repositories;
 public class ConversasRepository : IConversasRepository, IDisposable
 {
     private readonly IDbConnection _connection;
@@ -30,9 +28,9 @@ public class ConversasRepository : IConversasRepository, IDisposable
         var query = "AddConversa";
         var param = new
         {
-            Id = conversa.Id,
+            conversa.Id,
             Contato = conversa.ContatoId,
-            Titulo = conversa.Titulo,
+            conversa.Titulo,
         };
         await _connection.ExecuteAsync(query, param, commandType: CommandType.StoredProcedure);
     }

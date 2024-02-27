@@ -1,8 +1,7 @@
 ﻿using System.Data;
 
 using Chat.Domain.Repositories;
-using Chat.Infrastructure.Repositories;
-
+using Chat.Infrastructure.Data.Repositories;
 using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;

@@ -1,5 +1,5 @@
-using Chat.Api.Data;
 using Chat.CrossCutting;
+using Chat.Infrastructure.Data;
 
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;

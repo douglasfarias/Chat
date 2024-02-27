@@ -1,10 +1,9 @@
 using System.Data;
-
 using Chat.Domain.Entities;
-
+using Chat.Domain.Repositories;
 using Dapper;
 
-namespace Chat.Domain.Repositories
+namespace Chat.Infrastructure.Data.Repositories
 {
     public class MensagensRepository : IMensagensRepository
     {
@@ -35,8 +34,8 @@ namespace Chat.Domain.Repositories
             var query = "AddMensagem";
             var param = new
             {
-                Id = mensagem.Id,
-                Texto = mensagem.Texto,
+                mensagem.Id,
+                mensagem.Texto,
                 Conversa = mensagem.ConversaId,
                 Remetente = mensagem.RemetenteId,
             };
