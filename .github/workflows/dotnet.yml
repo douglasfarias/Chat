@@ -27,6 +27,7 @@ jobs:
     - name: Deploy
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
-        server: nextchat.somee.com/www.nextchat.somee.com
+        server: nextchat.somee.com
+        server-dir: /www.nextchat.somee.com
         username: douglas_farias
         password: ${{ secrets.ftp_password }}
