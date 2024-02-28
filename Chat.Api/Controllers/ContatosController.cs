@@ -3,11 +3,13 @@ using Chat.Domain.Querys.Contatos;
 
 using MediatR;
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Chat.Api.Controllers;
 [Route("api/[controller]")]
 [ApiController]
+[Authorize]
 public class ContatosController : ControllerBase
 {
     private readonly IMediator _mediator;
