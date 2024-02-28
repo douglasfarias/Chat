@@ -27,7 +27,7 @@ jobs:
     - name: Publish
       run: dotnet publish ./Chat.Api --configuration Release --no-restore
     - name: Deploy
-    - uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
         server: nextchat.somee.com
         local-dir: ./Chat.Api/bin/Release/net8.0/publish/
