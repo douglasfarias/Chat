@@ -23,7 +23,7 @@ jobs:
     - name: Restore dependencies
       run: dotnet restore
     - name: Build
-      run: dotnet build --no-restore --configuration Release --no-self-contained
+      run: dotnet build --no-restore --configuration Release
     - name: Deploy
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
