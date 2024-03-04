@@ -18,7 +18,7 @@ jobs:
     - name: Variables substitution.
       uses: microsoft/variable-substitution@v1 
       with:
-        files: 'appsettings.json'
+        files: './Chat.Api/appsettings.json'
       env:
         ConnectionStrings.DefaultConnection: ${{ secrets.DB_CONNECTION_STRING }}
     - name: Build, Push and Release a Docker container to Heroku.
