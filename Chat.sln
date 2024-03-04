@@ -3,15 +3,20 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34616.47
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chat.Api", "Chat.Api\Chat.Api.csproj", "{901BB244-4F5D-4218-9078-330F4A45711F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chat.Api", "Chat.Api\Chat.Api.csproj", "{901BB244-4F5D-4218-9078-330F4A45711F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chat.Domain", "Chat.Domain\Chat.Domain.csproj", "{7D8CD670-3324-486B-BE73-0C2C9C627899}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chat.Domain", "Chat.Domain\Chat.Domain.csproj", "{7D8CD670-3324-486B-BE73-0C2C9C627899}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chat.Infrastructure", "Chat.Infrastructure\Chat.Infrastructure.csproj", "{6CD50110-FD73-4B01-BCCE-0DF3ADF2EBAD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chat.Infrastructure", "Chat.Infrastructure\Chat.Infrastructure.csproj", "{6CD50110-FD73-4B01-BCCE-0DF3ADF2EBAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chat.Application", "Chat.Application\Chat.Application.csproj", "{979EF216-EE4D-492C-AF53-F4642E910C9E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chat.Application", "Chat.Application\Chat.Application.csproj", "{979EF216-EE4D-492C-AF53-F4642E910C9E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Chat.CrossCutting", "Chat.CrossCutting\Chat.CrossCutting.csproj", "{2E13EBB6-4AA7-47BE-A562-545324DEE204}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chat.CrossCutting", "Chat.CrossCutting\Chat.CrossCutting.csproj", "{2E13EBB6-4AA7-47BE-A562-545324DEE204}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{635AFE4F-BEAB-4622-AD53-83F9C3277B10}"
+	ProjectSection(SolutionItems) = preProject
+		Dockerfile = Dockerfile
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
