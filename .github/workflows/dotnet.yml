@@ -12,22 +12,17 @@ on:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: windows-latest
 
     steps:
-    - uses: actions/checkout@v3
-    - name: Setup .NET
-      uses: actions/setup-dotnet@v3
+    - name: Variables substitution.
+      uses: microsoft/variable-substitution@v1 
       with:
-        dotnet-version: 8.0.x
-    - name: Restore dependencies
-      run: dotnet restore
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-    - name: Publish
-      run: dotnet publish ./Chat.Api --configuration Release --no-restore
-    - name: Build, Push and Release a Docker container to Heroku. # Your custom step name
-      uses: gonuit/heroku-docker-deploy@v1.3.3 # GitHub action name (leave it as it is).
+        files: 'appsettings.json'
+      env:
+        ConnectionStrings.DefaultConnection: ${{ secrets.DB_CONNECTION_STRING }}
+    - name: Build, Push and Release a Docker container to Heroku.
+      uses: gonuit/heroku-docker-deploy@v1.3.3
       with:
         email: ${{ secrets.HEROKU_EMAIL }}
         heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
