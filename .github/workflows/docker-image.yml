@@ -1,0 +1,30 @@
+name: Heroku
+
+on:
+  push:
+    branches: [ "master" ]
+  pull_request:
+    branches: [ "master" ]
+
+jobs:
+
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v3
+    - name: Build the Docker image
+      run: docker build . --file Dockerfile
+    - name: Heroku Action
+      uses: CDNievas/heroku-action@v1.0
+      with:
+        # Used for authentication. You can find it in your heroku homepage account settings
+        heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
+        # Email from Heroku Account
+        heroku_email:  ${{ secrets.HEROKU_EMAIL }}
+        # The appname to use for deploying/updating
+        heroku_app_name:  ${{ secrets.HEROKU_APP_NAME }}
+        # The branch that you would like to deploy to Heroku
+        branch: main
+          
