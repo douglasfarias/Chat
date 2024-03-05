@@ -1,6 +1,8 @@
 ﻿using System.Data;
+
 using Chat.Domain.Entities;
 using Chat.Domain.Repositories;
+
 using Dapper;
 
 namespace Chat.Infrastructure.Data.Repositories;
@@ -29,7 +31,7 @@ public class ConversasRepository : IConversasRepository, IDisposable
         var param = new
         {
             conversa.Id,
-            Contato = conversa.ContatoId,
+            ContatoId = conversa.ContatoId,
             conversa.Titulo,
         };
         await _connection.ExecuteAsync(query, param, commandType: CommandType.StoredProcedure);

@@ -44,6 +44,8 @@ builder.Services.AddSwaggerGen(c =>
     });
 });
 
+builder.Services.AddCors();
+
 var app = builder.Build();
 
 app.MapIdentityApi<IdentityUser>();
@@ -52,7 +54,7 @@ if(app.Environment.IsDevelopment())
 {
     app.UseSwagger();
     app.UseSwaggerUI();
-
+    app.UseCors(app => app.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
 }
 
 app.UseHttpsRedirection();
