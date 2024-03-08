@@ -1,6 +1,6 @@
 ﻿using Chat.Domain.Commands.Mensagens;
 using Chat.Domain.Entities;
-using Chat.Domain.Queries.Mensagens;
+using Chat.Domain.Querys.Mensagens;
 using Chat.Domain.Repositories;
 using Chat.Domain.Services;
 

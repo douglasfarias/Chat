@@ -1,5 +1,7 @@
-﻿using Chat.Domain.Commands.Mensagens;
-using Chat.Domain.Queries.Mensagens;
+﻿using System.Security.Claims;
+
+using Chat.Domain.Commands.Mensagens;
+using Chat.Domain.Querys.Mensagens;
 
 using MediatR;
 
@@ -45,6 +47,8 @@ public class MensagensController : ControllerBase
     [HttpPost]
     public async Task<IActionResult> Post([FromBody] CreateMensagemCommand command)
     {
+        command.RemetenteId = User.FindFirst(ClaimTypes.NameIdentifier)!.Value;
+
         var id = await _mediator.Send(command);
 
         return CreatedAtAction(nameof(Get), new { id }, id);

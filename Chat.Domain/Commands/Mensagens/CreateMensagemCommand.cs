@@ -6,6 +6,6 @@ namespace Chat.Domain.Commands.Mensagens
     {
         public string Texto { get; set; }
         public Guid ConversaId { get; set; }
-        public Guid RemetenteId { get; set; }
+        public string RemetenteId { get; set; }
     }
 }

@@ -11,16 +11,16 @@ GO
 BEGIN TRANSACTION;
 GO
 
-CREATE TABLE [AspNetRoles] (
+CREATE TABLE [Papeis] (
     [Id] nvarchar(450) NOT NULL,
     [Name] nvarchar(256) NULL,
     [NormalizedName] nvarchar(256) NULL,
     [ConcurrencyStamp] nvarchar(max) NULL,
-    CONSTRAINT [PK_AspNetRoles] PRIMARY KEY ([Id])
+    CONSTRAINT [PK_Papeis] PRIMARY KEY ([Id])
 );
 GO
 
-CREATE TABLE [AspNetUsers] (
+CREATE TABLE [Usuarios] (
     [Id] nvarchar(450) NOT NULL,
     [UserName] nvarchar(256) NULL,
     [NormalizedUserName] nvarchar(256) NULL,
@@ -36,82 +36,82 @@ CREATE TABLE [AspNetUsers] (
     [LockoutEnd] datetimeoffset NULL,
     [LockoutEnabled] bit NOT NULL,
     [AccessFailedCount] int NOT NULL,
-    CONSTRAINT [PK_AspNetUsers] PRIMARY KEY ([Id])
+    CONSTRAINT [PK_Usuarios] PRIMARY KEY ([Id])
 );
 GO
 
-CREATE TABLE [AspNetRoleClaims] (
+CREATE TABLE [ReivindicacoesDePapeis] (
     [Id] int NOT NULL IDENTITY,
     [RoleId] nvarchar(450) NOT NULL,
     [ClaimType] nvarchar(max) NULL,
     [ClaimValue] nvarchar(max) NULL,
-    CONSTRAINT [PK_AspNetRoleClaims] PRIMARY KEY ([Id]),
-    CONSTRAINT [FK_AspNetRoleClaims_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE
+    CONSTRAINT [PK_ReivindicacoesDePapeis] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_ReivindicacoesDePapeis_Papeis_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Papeis] ([Id]) ON DELETE CASCADE
 );
 GO
 
-CREATE TABLE [AspNetUserClaims] (
-    [Id] int NOT NULL IDENTITY,
-    [UserId] nvarchar(450) NOT NULL,
-    [ClaimType] nvarchar(max) NULL,
-    [ClaimValue] nvarchar(max) NULL,
-    CONSTRAINT [PK_AspNetUserClaims] PRIMARY KEY ([Id]),
-    CONSTRAINT [FK_AspNetUserClaims_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
-);
-GO
-
-CREATE TABLE [AspNetUserLogins] (
+CREATE TABLE [LoginsDoUsuario] (
     [LoginProvider] nvarchar(450) NOT NULL,
     [ProviderKey] nvarchar(450) NOT NULL,
     [ProviderDisplayName] nvarchar(max) NULL,
     [UserId] nvarchar(450) NOT NULL,
-    CONSTRAINT [PK_AspNetUserLogins] PRIMARY KEY ([LoginProvider], [ProviderKey]),
-    CONSTRAINT [FK_AspNetUserLogins_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+    CONSTRAINT [PK_LoginsDoUsuario] PRIMARY KEY ([LoginProvider], [ProviderKey]),
+    CONSTRAINT [FK_LoginsDoUsuario_Usuarios_UserId] FOREIGN KEY ([UserId]) REFERENCES [Usuarios] ([Id]) ON DELETE CASCADE
 );
 GO
 
-CREATE TABLE [AspNetUserRoles] (
+CREATE TABLE [PapeisDoUsuario] (
     [UserId] nvarchar(450) NOT NULL,
     [RoleId] nvarchar(450) NOT NULL,
-    CONSTRAINT [PK_AspNetUserRoles] PRIMARY KEY ([UserId], [RoleId]),
-    CONSTRAINT [FK_AspNetUserRoles_AspNetRoles_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [AspNetRoles] ([Id]) ON DELETE CASCADE,
-    CONSTRAINT [FK_AspNetUserRoles_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+    CONSTRAINT [PK_PapeisDoUsuario] PRIMARY KEY ([UserId], [RoleId]),
+    CONSTRAINT [FK_PapeisDoUsuario_Papeis_RoleId] FOREIGN KEY ([RoleId]) REFERENCES [Papeis] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_PapeisDoUsuario_Usuarios_UserId] FOREIGN KEY ([UserId]) REFERENCES [Usuarios] ([Id]) ON DELETE CASCADE
 );
 GO
 
-CREATE TABLE [AspNetUserTokens] (
+CREATE TABLE [ReivindicacoesDoUsuario] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] nvarchar(450) NOT NULL,
+    [ClaimType] nvarchar(max) NULL,
+    [ClaimValue] nvarchar(max) NULL,
+    CONSTRAINT [PK_ReivindicacoesDoUsuario] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_ReivindicacoesDoUsuario_Usuarios_UserId] FOREIGN KEY ([UserId]) REFERENCES [Usuarios] ([Id]) ON DELETE CASCADE
+);
+GO
+
+CREATE TABLE [TokensDoUsuario] (
     [UserId] nvarchar(450) NOT NULL,
     [LoginProvider] nvarchar(450) NOT NULL,
     [Name] nvarchar(450) NOT NULL,
     [Value] nvarchar(max) NULL,
-    CONSTRAINT [PK_AspNetUserTokens] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
-    CONSTRAINT [FK_AspNetUserTokens_AspNetUsers_UserId] FOREIGN KEY ([UserId]) REFERENCES [AspNetUsers] ([Id]) ON DELETE CASCADE
+    CONSTRAINT [PK_TokensDoUsuario] PRIMARY KEY ([UserId], [LoginProvider], [Name]),
+    CONSTRAINT [FK_TokensDoUsuario_Usuarios_UserId] FOREIGN KEY ([UserId]) REFERENCES [Usuarios] ([Id]) ON DELETE CASCADE
 );
 GO
 
-CREATE INDEX [IX_AspNetRoleClaims_RoleId] ON [AspNetRoleClaims] ([RoleId]);
+CREATE INDEX [IX_LoginsDoUsuario_UserId] ON [LoginsDoUsuario] ([UserId]);
 GO
 
-CREATE UNIQUE INDEX [RoleNameIndex] ON [AspNetRoles] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
+CREATE UNIQUE INDEX [RoleNameIndex] ON [Papeis] ([NormalizedName]) WHERE [NormalizedName] IS NOT NULL;
 GO
 
-CREATE INDEX [IX_AspNetUserClaims_UserId] ON [AspNetUserClaims] ([UserId]);
+CREATE INDEX [IX_PapeisDoUsuario_RoleId] ON [PapeisDoUsuario] ([RoleId]);
 GO
 
-CREATE INDEX [IX_AspNetUserLogins_UserId] ON [AspNetUserLogins] ([UserId]);
+CREATE INDEX [IX_ReivindicacoesDePapeis_RoleId] ON [ReivindicacoesDePapeis] ([RoleId]);
 GO
 
-CREATE INDEX [IX_AspNetUserRoles_RoleId] ON [AspNetUserRoles] ([RoleId]);
+CREATE INDEX [IX_ReivindicacoesDoUsuario_UserId] ON [ReivindicacoesDoUsuario] ([UserId]);
 GO
 
-CREATE INDEX [EmailIndex] ON [AspNetUsers] ([NormalizedEmail]);
+CREATE INDEX [EmailIndex] ON [Usuarios] ([NormalizedEmail]);
 GO
 
-CREATE UNIQUE INDEX [UserNameIndex] ON [AspNetUsers] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
+CREATE UNIQUE INDEX [UserNameIndex] ON [Usuarios] ([NormalizedUserName]) WHERE [NormalizedUserName] IS NOT NULL;
 GO
 
 INSERT INTO [__EFMigrationsHistory] ([MigrationId], [ProductVersion])
-VALUES (N'20240225205857_Authorization', N'8.0.2');
+VALUES (N'20240308015502_Authorization', N'8.0.2');
 GO
 
 COMMIT;

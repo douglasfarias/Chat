@@ -2,7 +2,7 @@
 
 using MediatR;
 
-namespace Chat.Domain.Queries.Mensagens
+namespace Chat.Domain.Querys.Mensagens
 {
     public class GetMensagemByIdQuery : IRequest<Mensagem>
     {

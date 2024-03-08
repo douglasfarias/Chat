@@ -4,7 +4,7 @@ using Chat.Domain.Querys.Conversas;
 using Chat.Domain.Repositories;
 using Chat.Domain.Services;
 
-namespace Chat.Application.CommandHandlers;
+namespace Chat.Application.Services;
 public class ConversasService : IConversasService
 {
     private readonly IConversasRepository _conversasRepository;
