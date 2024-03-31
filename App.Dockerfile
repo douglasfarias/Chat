@@ -22,8 +22,14 @@ FROM nginx:latest
 # Copie os arquivos de compilação do aplicativo Angular da etapa anterior para o diretório padrão do Nginx
 COPY --from=builder /app/dist/* /usr/share/nginx/html/
 
-# Exponha a porta 80 para fora do container
-EXPOSE 8080
+# Exponha a porta padrão 80 do Nginx
+EXPOSE 80
 
-# Comando para iniciar o servidor Nginx em execução em segundo plano quando o contêiner for iniciado
-CMD ["nginx", "-g", "daemon off;"]
+# Defina a porta que o Nginx irá escutar usando uma variável de ambiente
+ENV NGINX_PORT 80
+
+# Copie o arquivo de configuração personalizado do Nginx
+COPY nginx.conf.template /etc/nginx/nginx.conf.template
+
+# Comando para substituir a porta no arquivo de configuração do Nginx e iniciar o servidor Nginx em execução em segundo plano quando o contêiner for iniciado
+CMD envsubst '$NGINX_PORT' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'
