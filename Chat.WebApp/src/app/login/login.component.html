@@ -1,0 +1,33 @@
+<div class="container mt-5 pt-5">
+    <div class="row">
+        <h3 class="text-center kode-mono-500 fw-bold mb-0">NextChat</h3>
+        <small class="text-center kode-mono-500 fw-bold">your next chat app</small>
+    </div>
+    <div class="row justify-content-center mt-3">
+        <div class="col-md-3">
+            <div class="alert alert-danger" role="alert" *ngIf="erro">
+                {{ erro }}
+            </div>
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
+                <fieldset [disabled]="carregando">
+                    <legend class="h5">Entrar</legend>
+                    <div class="form-group mb-1">
+                        <label for="email">Email:</label>
+                        <input type="email" formControlName="email" class="form-control" id="email" placeholder="Digite seu email" required>
+                    </div>
+                    <div class="form-group mb-3">
+                        <label for="password">Senha:</label>
+                        <input type="password" formControlName="password" class="form-control" id="password" placeholder="Digite sua senha" required>
+                    </div>
+                    <div class="d-flex justify-content-between align-ìtems-center">
+                        <button type="submit" class="btn btn-primary">
+                            Entrar
+                            <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" *ngIf="carregando"></span>
+                        </button>
+                        <a class="my-2" routerLink="/registrar">Cadastrar-se</a>
+                    </div>
+                </fieldset>
+            </form>
+        </div>
+    </div>
+</div>

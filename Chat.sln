@@ -18,6 +18,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens
 		Dockerfile = Dockerfile
 	EndProjectSection
 EndProject
+Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Chat.WebApp", "Chat.WebApp\Chat.WebApp.esproj", "{3E362F4A-E897-4733-91FF-9D9B43D96840}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,12 @@ Global
 		{2E13EBB6-4AA7-47BE-A562-545324DEE204}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E13EBB6-4AA7-47BE-A562-545324DEE204}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E13EBB6-4AA7-47BE-A562-545324DEE204}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E362F4A-E897-4733-91FF-9D9B43D96840}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E362F4A-E897-4733-91FF-9D9B43D96840}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E362F4A-E897-4733-91FF-9D9B43D96840}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{3E362F4A-E897-4733-91FF-9D9B43D96840}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E362F4A-E897-4733-91FF-9D9B43D96840}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E362F4A-E897-4733-91FF-9D9B43D96840}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
