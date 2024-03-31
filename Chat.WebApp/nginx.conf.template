@@ -25,7 +25,6 @@ events {
 http {
 	server {
 		listen ${NGINX_PORT} nextchat-app-9da490312554.herokuapp.com;
-		listen [::]:${NGINX_PORT} nextchat-app-9da490312554.herokuapp.com;
 
 		# SSL configuration
 		#
