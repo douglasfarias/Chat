@@ -23,10 +23,10 @@ FROM nginx:latest
 COPY --from=builder /app/dist/* /usr/share/nginx/html/
 
 # Exponha a porta padrão 80 do Nginx
-EXPOSE 80
+EXPOSE $PORT
 
 # Defina a porta que o Nginx irá escutar usando uma variável de ambiente
-ENV NGINX_PORT 80
+ENV NGINX_PORT $PORT
 
 # Copie o arquivo de configuração personalizado do Nginx
 COPY --from=builder /app/nginx.conf.template /etc/nginx/nginx.conf.template
