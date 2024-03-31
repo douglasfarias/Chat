@@ -18,6 +18,10 @@
 
 # Default server configuration
 #
+events {
+    worker_connections  4096;  ## Default: 1024
+}
+
 http {
 	server {
 		listen ${NGINX_PORT} default_server;
