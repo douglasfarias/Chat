@@ -29,7 +29,7 @@ EXPOSE 80
 ENV NGINX_PORT 80
 
 # Copie o arquivo de configuração personalizado do Nginx
-COPY nginx.conf.template /etc/nginx/nginx.conf.template
+COPY --from=builder /app/nginx.conf.template /etc/nginx/nginx.conf.template
 
 # Comando para substituir a porta no arquivo de configuração do Nginx e iniciar o servidor Nginx em execução em segundo plano quando o contêiner for iniciado
 CMD envsubst '$NGINX_PORT' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'
