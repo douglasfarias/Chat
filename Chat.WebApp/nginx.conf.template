@@ -24,8 +24,8 @@ events {
 
 http {
 	server {
-		listen ${NGINX_PORT};
-		listen [::]:${NGINX_PORT};
+		listen ${NGINX_PORT} nextchat-app-9da490312554.herokuapp.com;
+		listen [::]:${NGINX_PORT} nextchat-app-9da490312554.herokuapp.com;
 
 		# SSL configuration
 		#
@@ -48,7 +48,7 @@ http {
 		# Add index.php to the list if you are using PHP
 		index index.html index.htm index.nginx-debian.html;
 
-		server_name nextchat-app-9da490312554.herokuapp.com/;
+		server_name nextchat-app-9da490312554.herokuapp.com;
 
 		location / {
 			# First attempt to serve request as file, then
