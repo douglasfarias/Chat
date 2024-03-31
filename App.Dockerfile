@@ -26,4 +26,4 @@ COPY --from=builder /app/dist/* /usr/share/nginx/html/
 EXPOSE $PORT
 
 # Comando para iniciar o servidor Nginx em execução em segundo plano quando o contêiner for iniciado
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["nginx", "-g", "daemon off;", "-p", $PORT]
