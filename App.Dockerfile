@@ -25,8 +25,11 @@ COPY --from=builder /app/dist/* /usr/share/nginx/html/
 # Exponha a porta padrão 80 do Nginx
 EXPOSE $PORT
 
+# Defina a porta que o Nginx irá escutar usando uma variável de ambiente
+ENV NGINX_PORT $PORT
+
 # Copie o arquivo de configuração personalizado do Nginx
 COPY --from=builder /app/nginx.conf.template /etc/nginx/nginx.conf.template
 
 # Comando para substituir a porta no arquivo de configuração do Nginx e iniciar o servidor Nginx em execução em segundo plano quando o contêiner for iniciado
-CMD envsubst $PORT < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'
+CMD envsubst '$NGINX_PORT' < /etc/nginx/nginx.conf.template > /etc/nginx/nginx.conf && nginx -g 'daemon off;'
