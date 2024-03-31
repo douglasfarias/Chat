@@ -23,7 +23,7 @@ FROM nginx:latest
 COPY --from=builder /app/dist/* /usr/share/nginx/html/
 
 # Exponha a porta 80 para fora do container
-EXPOSE $PORT
+EXPOSE 8080
 
 # Comando para iniciar o servidor Nginx em execução em segundo plano quando o contêiner for iniciado
-CMD nginx -p $PORT -g daemon off;
+CMD ["nginx", "-g", "daemon off;"]
