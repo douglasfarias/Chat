@@ -15,7 +15,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Chat.CrossCutting", "Chat.C
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Itens de Solução", "Itens de Solução", "{635AFE4F-BEAB-4622-AD53-83F9C3277B10}"
 	ProjectSection(SolutionItems) = preProject
-		Dockerfile = Dockerfile
+		Api.Dockerfile = Api.Dockerfile
+		App.Dockerfile = App.Dockerfile
 	EndProjectSection
 EndProject
 Project("{54A90642-561A-4BB1-A94E-469ADEE60C69}") = "Chat.WebApp", "Chat.WebApp\Chat.WebApp.esproj", "{3E362F4A-E897-4733-91FF-9D9B43D96840}"
